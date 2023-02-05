@@ -1,0 +1,36 @@
+.button{
+	font-size: 30px;
+	padding: 10px;
+	border-radius: 50%;
+	transition: all 0.5s ease;
+
+	&--primary{
+		color:#787878;
+	}
+
+	&--primary &--dark-mode{
+		color:black;
+	}
+
+	&--action{
+		color:aquamarine;
+	}
+
+	&--control{
+		color:black;
+		
+	}
+}
+
+.button--primary.button--dark-mode{
+	color:#ddd;
+}
+
+.button--action.button--dark-mode{
+	background-color: #fff;
+}
+
+.button--control.button--dark-mode{
+	color:#ddd;
+	background-color: #6c807e;
+}

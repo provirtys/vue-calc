@@ -1,0 +1,15 @@
+.tab {
+	&--active {
+		color: #fff;
+		background-color: #009788;
+	}
+
+	&--dark-mode {
+		color: #c4d6d8;
+	}
+}
+
+.tab--active.tab--dark-mode {
+	color: #009788;
+	background-color: #fff;
+}

@@ -1,0 +1,39 @@
+.header{
+	display: flex;
+	justify-content: space-between;
+	gap: 0 10px;
+	padding-bottom: 10px;
+	border-bottom: 2px black solid;
+	transition: border-bottom .5s;
+
+	&--dark-mode{
+		border-bottom: 2px #fff solid;
+	}
+
+	&__menu{
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+
+	&__mode{
+		width: 30px;
+		height: 30px;
+		position: relative;
+
+		svg{
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 30px;
+			height: 30px;
+		}
+	}
+
+	&__tabs{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+}
