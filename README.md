@@ -1,4 +1,4 @@
-# vue-calc
+# vue-calc (vue, pinia, tailwind)
 
 ## Project setup
 ```
