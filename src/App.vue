@@ -11,7 +11,7 @@
 					<v-display class="mb-10" />
 					<v-buttons />
 				</div>
-				<div class="converter h-[509px] w-[300px]"
+				<div class="converter h-[485px] w-[300px]"
 					v-else>
 					<div :class="['converter__side', { 'converter__side--dark-mode': calcStore.isDarkMode }]">
 						<ul class="converter__list">
