@@ -5,13 +5,13 @@
 		<v-header class="mb-10" />
 		<div class="tabs-content relative">
 			<Transition name="tabs">
-				<div class="calculator"
+				<div class="calculator flex flex-col h-[510px]"
 					v-if="calcStore.activeTab.id === 1">
-					<v-history/>
+					<v-history class="grow"/>
 					<v-display class="mb-10" />
 					<v-buttons />
 				</div>
-				<div class="converter h-[485px] w-[300px]"
+				<div class="converter h-[510px] w-[300px]"
 					v-else>
 					<div :class="['converter__side', { 'converter__side--dark-mode': calcStore.isDarkMode }]">
 						<ul class="converter__list">

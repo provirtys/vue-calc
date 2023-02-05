@@ -8,18 +8,8 @@ export const useCalcStore = defineStore("calcStore", () => {
   const n2 = ref(0)
   const isInputStarted = ref(false)
   const showN2 = ref(false)
-	const historyTemp = ref('')
+	const history = ref('')
 	const equalPressed = ref(false)
-  const history = computed(() => {
-		return historyTemp.value
-		if(n2.value){
-			return historyTemp.value + n1.value + action.value + n2.value
-		}
-		else if(action.value.length){
-			return historyTemp.value + n1.value + action.value
-		}
-		return historyTemp.value + n1.value
-	})
 
   const result = computed(() => {
     return n2.value && showN2.value ? n2.value : n1.value ? n1.value : 0
@@ -85,7 +75,19 @@ export const useCalcStore = defineStore("calcStore", () => {
   const onClickEqual = () => {
 		equalPressed.value = true
     showN2.value = false
-		historyTemp.value += historyTemp.value.length ? action.value + n2.value : n1.value + action.value + n2.value 
+		if(history.value.length){
+			if(action.value.length){
+				history.value += action.value + n2.value
+			}
+		}
+		else{
+			if(action.value.length){
+				history.value += n1.value + action.value + n2.value 
+			}
+			else{
+				history.value += n1.value
+			}
+		}
     switch (action.value) {
       case "+": {
         n1.value = (+n1.value * 10 + +n2.value * 10) / 10
@@ -108,7 +110,7 @@ export const useCalcStore = defineStore("calcStore", () => {
         break
       }
     }
-    n1.value = n1.value.toString()
+    n1.value = n1.value ? n1.value.toString() : n1.value
   }
 
   const onClickBack = () => {
@@ -122,7 +124,7 @@ export const useCalcStore = defineStore("calcStore", () => {
     n2.value = 0
     isInputStarted.value = false
     action.value = ''
-		historyTemp.value = ''
+		history.value = ''
   }
 
   const tabs = ref([
@@ -241,6 +243,5 @@ export const useCalcStore = defineStore("calcStore", () => {
     onClickConverter,
     history,
 		action,
-		historyTemp
   }
 })
